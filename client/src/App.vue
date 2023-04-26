@@ -3,7 +3,7 @@
     <a-config-provider :locale="locale">
       <router-view />
     </a-config-provider>
-    <img class="background" v-if="background" :src="background" alt="" />
+<!--    <img class="background" v-if="background" :src="background" alt="" />-->
   </div>
 </template>
 <script lang="ts">
@@ -44,9 +44,6 @@ export default class Chat extends Vue {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
   height: 100%;
   width: 100%;

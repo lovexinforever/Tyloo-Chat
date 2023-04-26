@@ -10,7 +10,6 @@
       <div
         v-if="chat.groupId"
         class="room-card"
-        :class="{ active: activeRoom && activeRoom.groupId === chat.groupId }"
         @click="changeActiveRoom(chat)"
         v-contextmenu="'groupmenu' + chat.groupId"
       >
@@ -52,7 +51,6 @@
       <div
         v-else
         class="room-card"
-        :class="{ active: activeRoom && !activeRoom.groupId && activeRoom.userId === chat.userId }"
         @click="changeActiveRoom(chat)"
         v-contextmenu="'contextmenu' + chat.userId"
       >
@@ -267,6 +265,7 @@ export default class Room extends Vue {
 
   changeActiveRoom(activeRoom: User | Group) {
     this.$emit('setActiveRoom', activeRoom);
+    this.$router.push('/chat')
     // 激活聊天室时清空未读消息列表
     this.lose_unread_gather((activeRoom as Group).groupId || (activeRoom as User).userId);
   }
@@ -352,7 +351,6 @@ export default class Room extends Vue {
           font-weight: bold;
           font-size: 16px;
           display: inline-block;
-          max-width: 110px;
         }
         .room-card-time {
           overflow: hidden; //超出的文本隐藏

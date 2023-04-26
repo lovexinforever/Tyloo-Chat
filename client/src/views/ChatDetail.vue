@@ -1,49 +1,45 @@
 <template>
-  <div
-    class="chat"
-    :style="{
-      '--bg-image': `url('${background}')`,
-    }"
-  >
+<!--  <div-->
+<!--  >-->
     <!-- 左侧导航栏 -->
-    <div class="chat-part1" v-if="visibleNav">
-      <Nav @logout="logout"></Nav>
-    </div>
+<!--    <div class="chat-part1" v-if="visibleNav">-->
+<!--      <Nav @logout="logout"></Nav>-->
+<!--    </div>-->
     <!-- 消息列表/通讯人列表 -->
-    <div class="chat-part2">
-      <template v-if="activeTabName === 'message'">
-        <Search @addGroup="addGroup" @joinGroup="joinGroup" @addFriend="addFriend" @setActiveRoom="setActiveRoom"> </Search>
-        <Room @setActiveRoom="setActiveRoom"></Room>
-      </template>
-      <template v-else>
-        <Contact @addFriend="addFriend" @setActiveRoom="setActiveRoom"></Contact>
-      </template>
-    </div>
+<!--    <div class="chat-part2">-->
+<!--      <template v-if="activeTabName === 'message'">-->
+<!--        <Search @addGroup="addGroup" @joinGroup="joinGroup" @addFriend="addFriend" @setActiveRoom="setActiveRoom"> </Search>-->
+<!--        <Room @setActiveRoom="setActiveRoom"></Room>-->
+<!--      </template>-->
+<!--      <template v-else>-->
+<!--        <Contact @addFriend="addFriend" @setActiveRoom="setActiveRoom"></Contact>-->
+<!--      </template>-->
+<!--    </div>-->
     <!-- 右侧聊天窗口 -->
-    <div class="chat-part3">
-      <a-icon class="chat-team" type="message" @click="toggleDrawer" />
-      <div class="chat-nav">
-        <a-icon type="menu-fold" @click="toggleNav" v-if="visibleNav" />
-        <a-icon type="menu-unfold" @click="toggleNav" v-else />
-      </div>
+<!--    <div class="chat-part3">-->
+<!--      <a-icon class="chat-team" type="message" @click="toggleDrawer" />-->
+<!--      <div class="chat-nav">-->
+<!--        <a-icon type="menu-fold" @click="toggleNav" v-if="visibleNav" />-->
+<!--        <a-icon type="menu-unfold" @click="toggleNav" v-else />-->
+<!--      </div>-->
       <Message v-if="activeRoom"></Message>
-    </div>
-    <!-- 登录注册 -->
-    <Login @register="handleRegister" @login="handleLogin" :showModal="showModal"></Login>
+<!--    </div>-->
+<!--     登录注册-->
+<!--    <Login @register="handleRegister" @login="handleLogin" :showModal="showModal"></Login>-->
 
     <!-- 移动端兼容 -->
-    <a-drawer placement="left" :closable="false" :visible="visibleDrawer" @close="toggleDrawer" style="height: 100%">
-      <div class="chat-drawer">
-        <template v-if="activeTabName === 'message'">
-          <Search @addGroup="addGroup" @joinGroup="joinGroup" @addFriend="addFriend" @setActiveRoom="setActiveRoom"> </Search>
-          <Room @setActiveRoom="setActiveRoom"></Room>
-        </template>
-        <template v-else>
-          <Contact @addFriend="addFriend" @setActiveRoom="setActiveRoom"></Contact>
-        </template>
-      </div>
-    </a-drawer>
-  </div>
+<!--    <a-drawer placement="left" :closable="false" :visible="visibleDrawer" @close="toggleDrawer" style="height: 100%">-->
+<!--      <div class="chat-drawer">-->
+<!--        <template v-if="activeTabName === 'message'">-->
+<!--          <Search @addGroup="addGroup" @joinGroup="joinGroup" @addFriend="addFriend" @setActiveRoom="setActiveRoom"> </Search>-->
+<!--          <Room @setActiveRoom="setActiveRoom"></Room>-->
+<!--        </template>-->
+<!--        <template v-else>-->
+<!--          <Contact @addFriend="addFriend" @setActiveRoom="setActiveRoom"></Contact>-->
+<!--        </template>-->
+<!--      </div>-->
+<!--    </a-drawer>-->
+<!--  </div>-->
 </template>
 
 <script lang="ts">
@@ -104,22 +100,22 @@ export default class Chat extends Vue {
 
   created() {
     // 单点登陆/获取url链接中传递的userName,直接后台默认注册登陆
-    const { password, username } = this.$route.query;
-    if (username) {
-      this.login({
-        username,
-        password,
-      }).then((res: any) => {
-        if (res) {
-          // 进入系统事件
-          this.handleJoin();
-        }
-      });
-    } else if (!this.user.userId) {
-      this.showModal = true;
-    } else {
-      this.handleJoin();
-    }
+    // const { password, username } = this.$route.query;
+    // if (username) {
+    //   this.login({
+    //     username,
+    //     password,
+    //   }).then((res: any) => {
+    //     if (res) {
+    //       // 进入系统事件
+    //       this.handleJoin();
+    //     }
+    //   });
+    // } else if (!this.user.userId) {
+    //   this.showModal = true;
+    // } else {
+    //   this.handleJoin();
+    // }
   }
 
   // 登录

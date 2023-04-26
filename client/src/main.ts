@@ -26,6 +26,8 @@ Vue.prototype.$moment = moment;
 // lodash
 Vue.prototype.$lodash = lodash;
 
+// Vue.prototype.$router = router;
+
 // localforage https://localforage.docschina.org/
 // 基于IndexedDB二次封装
 Vue.prototype.$localforage = localforage;

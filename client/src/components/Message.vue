@@ -496,14 +496,15 @@ export default class Message extends Vue {
     }
   }
   // 移动端样式
-  @media screen and (max-width: 768px) {
-    .message-main {
-      height: calc(100% - 100px) !important;
-    }
-  }
+  //@media screen and (max-width: 768px) {
+  //  .message-main {
+  //    height: calc(100% - 100px) !important;
+  //  }
+  //}
   .message-main {
     overflow: auto;
     flex: 1;
+    height: calc(100% - 100px) !important;
     position: relative;
     .message-notification {
       ::v-deep .ant-alert-description {

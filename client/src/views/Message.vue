@@ -1,49 +1,45 @@
 <template>
-  <div
-    class="chat"
-    :style="{
-      '--bg-image': `url('${background}')`,
-    }"
-  >
+<!--  <div-->
+<!--  >-->
     <!-- 左侧导航栏 -->
-    <div class="chat-part1" v-if="visibleNav">
-      <Nav @logout="logout"></Nav>
-    </div>
+<!--    <div class="chat-part1" v-if="visibleNav">-->
+<!--      <Nav @logout="logout"></Nav>-->
+<!--    </div>-->
     <!-- 消息列表/通讯人列表 -->
-    <div class="chat-part2">
-      <template v-if="activeTabName === 'message'">
-        <Search @addGroup="addGroup" @joinGroup="joinGroup" @addFriend="addFriend" @setActiveRoom="setActiveRoom"> </Search>
+<!--    <div class="chat-part2">-->
+<!--      <template v-if="activeTabName === 'message'">-->
+<!--        <Search @addGroup="addGroup" @joinGroup="joinGroup" @addFriend="addFriend" @setActiveRoom="setActiveRoom"> </Search>-->
         <Room @setActiveRoom="setActiveRoom"></Room>
-      </template>
-      <template v-else>
-        <Contact @addFriend="addFriend" @setActiveRoom="setActiveRoom"></Contact>
-      </template>
-    </div>
+<!--      </template>-->
+<!--      <template v-else>-->
+<!--        <Contact @addFriend="addFriend" @setActiveRoom="setActiveRoom"></Contact>-->
+<!--      </template>-->
+<!--    </div>-->
     <!-- 右侧聊天窗口 -->
-    <div class="chat-part3">
-      <a-icon class="chat-team" type="message" @click="toggleDrawer" />
-      <div class="chat-nav">
-        <a-icon type="menu-fold" @click="toggleNav" v-if="visibleNav" />
-        <a-icon type="menu-unfold" @click="toggleNav" v-else />
-      </div>
-      <Message v-if="activeRoom"></Message>
-    </div>
+<!--    <div class="chat-part3">-->
+<!--      <a-icon class="chat-team" type="message" @click="toggleDrawer" />-->
+<!--      <div class="chat-nav">-->
+<!--        <a-icon type="menu-fold" @click="toggleNav" v-if="visibleNav" />-->
+<!--        <a-icon type="menu-unfold" @click="toggleNav" v-else />-->
+<!--      </div>-->
+<!--      <Message v-if="activeRoom"></Message>-->
+<!--    </div>-->
     <!-- 登录注册 -->
-    <Login @register="handleRegister" @login="handleLogin" :showModal="showModal"></Login>
+<!--    <Login @register="handleRegister" @login="handleLogin" :showModal="showModal"></Login>-->
 
     <!-- 移动端兼容 -->
-    <a-drawer placement="left" :closable="false" :visible="visibleDrawer" @close="toggleDrawer" style="height: 100%">
-      <div class="chat-drawer">
-        <template v-if="activeTabName === 'message'">
-          <Search @addGroup="addGroup" @joinGroup="joinGroup" @addFriend="addFriend" @setActiveRoom="setActiveRoom"> </Search>
-          <Room @setActiveRoom="setActiveRoom"></Room>
-        </template>
-        <template v-else>
-          <Contact @addFriend="addFriend" @setActiveRoom="setActiveRoom"></Contact>
-        </template>
-      </div>
-    </a-drawer>
-  </div>
+<!--    <a-drawer placement="left" :closable="false" :visible="visibleDrawer" @close="toggleDrawer" style="height: 100%">-->
+<!--      <div class="chat-drawer">-->
+<!--        <template v-if="activeTabName === 'message'">-->
+<!--          <Search @addGroup="addGroup" @joinGroup="joinGroup" @addFriend="addFriend" @setActiveRoom="setActiveRoom"> </Search>-->
+<!--          <Room @setActiveRoom="setActiveRoom"></Room>-->
+<!--        </template>-->
+<!--        <template v-else>-->
+<!--          <Contact @addFriend="addFriend" @setActiveRoom="setActiveRoom"></Contact>-->
+<!--        </template>-->
+<!--      </div>-->
+<!--    </a-drawer>-->
+<!--  </div>-->
 </template>
 
 <script lang="ts">
