@@ -6,10 +6,11 @@
 <!--      <Nav @logout="logout"></Nav>-->
 <!--    </div>-->
     <!-- 消息列表/通讯人列表 -->
+  <div @click="go2Detail" class="detail">跳转详情</div>
 <!--    <div class="chat-part2">-->
 <!--      <template v-if="activeTabName === 'message'">-->
 <!--        <Search @addGroup="addGroup" @joinGroup="joinGroup" @addFriend="addFriend" @setActiveRoom="setActiveRoom"> </Search>-->
-        <Room @setActiveRoom="setActiveRoom"></Room>
+<!--        <Room @setActiveRoom="setActiveRoom"></Room>-->
 <!--      </template>-->
 <!--      <template v-else>-->
 <!--        <Contact @addFriend="addFriend" @setActiveRoom="setActiveRoom"></Contact>-->
@@ -72,6 +73,8 @@ export default class Chat extends Vue {
 
   @appModule.Action('login') login: Function;
 
+  @appModule.Action('saveData') saveData: Function;
+
   @appModule.Action('register') register: Function;
 
   @appModule.Getter('background') background: string;
@@ -99,23 +102,33 @@ export default class Chat extends Vue {
   visibleNav: boolean = true;
 
   created() {
-    // 单点登陆/获取url链接中传递的userName,直接后台默认注册登陆
-    const { password, username } = this.$route.query;
-    if (username) {
-      this.login({
-        username,
-        password,
-      }).then((res: any) => {
-        if (res) {
-          // 进入系统事件
-          this.handleJoin();
-        }
-      });
-    } else if (!this.user.userId) {
-      this.showModal = true;
-    } else {
+
+    let { data } = this.$route.query;
+
+    data = JSON.parse(data)
+    console.log(data)
+
+    this.saveData(data).then((res: any) => {
       this.handleJoin();
-    }
+    })
+
+    // 单点登陆/获取url链接中传递的userName,直接后台默认注册登陆
+    // const { password, username } = this.$route.query;
+    // if (username) {
+    //   this.login({
+    //     username,
+    //     password,
+    //   }).then((res: any) => {
+    //     if (res) {
+    //       // 进入系统事件
+    //       this.handleJoin();
+    //     }
+    //   });
+    // } else if (!this.user.userId) {
+    //   this.showModal = true;
+    // } else {
+    //   this.handleJoin();
+    // }
   }
 
   // 登录
@@ -124,6 +137,13 @@ export default class Chat extends Vue {
     if (res) {
       // 进入系统事件
       this.handleJoin();
+    }
+  }
+
+  go2Detail() {
+    var str = navigator.userAgent;
+    if(str.includes('Wecare')) {
+      Wecare.postMessage(JSON.stringify({method:"go_chat_detail"}));
     }
   }
 
@@ -248,6 +268,9 @@ export default class Chat extends Vue {
   .chat-nav {
     display: none;
   }
+}
+.detail {
+  color:black;
 }
 .chat::after {
   content: '';

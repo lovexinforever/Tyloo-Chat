@@ -32,6 +32,13 @@ const actions: ActionTree<AppState, RootState> = {
       return data;
     }
   },
+  async saveData({ commit }, data) {
+    if (data) {
+      commit(SET_USER, data.user);
+      commit(SET_TOKEN, data.token);
+      return data;
+    }
+  },
 };
 
 export default actions;

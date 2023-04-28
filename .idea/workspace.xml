@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4425ae9-ac07-4587-b3af-fceaec3f42e5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/client/.env.dev" beforeDir="false" afterPath="$PROJECT_DIR$/client/.env.dev" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Message.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Message.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Room.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Room.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/views/Chat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Chat.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/vue.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/modules/app/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/modules/app/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/ChatDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/ChatDetail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/Message.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Message.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +102,9 @@
       <workItem from="1682301716562" duration="11899000" />
       <workItem from="1682387787624" duration="1751000" />
       <workItem from="1682397136916" duration="1998000" />
-      <workItem from="1682472944686" duration="612000" />
+      <workItem from="1682472944686" duration="3874000" />
+      <workItem from="1682516510650" duration="186000" />
+      <workItem from="1682556488071" duration="7551000" />
     </task>
     <servers />
   </component>

@@ -74,6 +74,8 @@ export default class Chat extends Vue {
 
   @appModule.Action('register') register: Function;
 
+  @appModule.Action('saveData') saveData: Function;
+
   @appModule.Getter('background') background: string;
 
   @appModule.Getter('activeTabName') activeTabName: string;
@@ -99,6 +101,15 @@ export default class Chat extends Vue {
   visibleNav: boolean = true;
 
   created() {
+    let { data } = this.$route.query;
+
+    data = JSON.parse(data)
+    console.log(data)
+
+    this.saveData(data).then((res: any) => {
+      this.handleJoin();
+    })
+
     // 单点登陆/获取url链接中传递的userName,直接后台默认注册登陆
     // const { password, username } = this.$route.query;
     // if (username) {
